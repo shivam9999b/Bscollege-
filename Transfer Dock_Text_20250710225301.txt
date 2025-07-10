@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSCollege - Best Hi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+    .content {
+      padding: 20px;
+    }
+    .article {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+    .article h2 {
+      margin: 0;
+      color: #003366;
+    }
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    .lang-toggle {
+      margin-left: auto;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Best Hi - BSCollege</h1>
+    <nav>
+      <a href="#" onclick="loadContent('home')">Home</a>
+      <a href="#" onclick="loadContent('automobile')">Automobile News</a>
+      <a href="#" onclick="loadContent('tech')">Technology News</a>
+      <span class="lang-toggle" onclick="toggleLanguage()">हिंदी</span>
+    </nav>
+  </header>  <div class="content" id="main-content">
+    <h2>Welcome to BSCollege Blog</h2>
+    <p>This blog covers the latest in Automobile and Technology News in English and Hindi.</p>
+  </div>  <footer>
+    &copy; 2025 BSCollege. All rights reserved.
+  </footer>  <script>
+    const content = {
+      home: `
+        <h2>Welcome to BSCollege Blog</h2>
+        <p>This blog covers the latest in Automobile and Technology News in English and Hindi.</p>
+      `,
+      automobile: `
+        <div class="article">
+          <h2>Top 125cc Bikes in 2025</h2>
+          <p>Discover the best mileage 125cc bikes this year.</p>
+        </div>
+        <div class="article">
+          <h2>EV Scooter Showdown</h2>
+          <p>Which electric scooter is best in India?</p>
+        </div>
+      `,
+      tech: `
+        <div class="article">
+          <h2>Top 5 Budget Smartphones 2025</h2>
+          <p>Check out these amazing phones under ₹15,000.</p>
+        </div>
+        <div class="article">
+          <h2>AI Tools Changing the Game</h2>
+          <p>Explore the latest AI-based apps for daily use.</p>
+        </div>
+      `,
+    };
+
+    const hindiContent = {
+      home: `
+        <h2>BSCollege ब्लॉग में आपका स्वागत है</h2>
+        <p>यह ब्लॉग ऑटोमोबाइल और टेक्नोलॉजी से जुड़ी लेटेस्ट खबरों को हिंदी और इंग्लिश दोनों में प्रस्तुत करता है।</p>
+      `,
+      automobile: `
+        <div class="article">
+          <h2>2025 में बेस्ट 125cc बाइक</h2>
+          <p>इस साल की सबसे ज्यादा माइलेज वाली बाइक्स जानें।</p>
+        </div>
+        <div class="article">
+          <h2>EV स्कूटर की तुलना</h2>
+          <p>भारत में बेस्ट इलेक्ट्रिक स्कूटर कौन सा है?</p>
+        </div>
+      `,
+      tech: `
+        <div class="article">
+          <h2>2025 के टॉप बजट स्मार्टफोन</h2>
+          <p>₹15,000 के अंदर के बेहतरीन मोबाइल देखें।</p>
+        </div>
+        <div class="article">
+          <h2>AI टूल्स जो बदल रहे हैं गेम</h2>
+          <p>डेली लाइफ में काम आने वाले बेस्ट AI एप्स की जानकारी।</p>
+        </div>
+      `,
+    };
+
+    let currentLang = 'en';
+
+    function loadContent(type) {
+      const area = document.getElementById("main-content");
+      area.innerHTML = currentLang === 'en' ? content[type] : hindiContent[type];
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      document.querySelector('.lang-toggle').textContent = currentLang === 'en' ? 'हिंदी' : 'English';
+      loadContent('home');
+    }
+  </script></body>
+</html>
